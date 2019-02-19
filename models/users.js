@@ -6,5 +6,5 @@ const userSchema = mongoose.Schema({
   auth0_id: String
 });
 
-const userModel = mongoose.model("User", userSchema);
+const userModel = mongoose.model("Users", userSchema);
 module.exports = userModel;

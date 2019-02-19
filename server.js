@@ -9,7 +9,7 @@ const adminController = require("./controllers/admin_controller");
 const cloudinaryController = require("./controllers/cloudinary_controller");
 const userController = require("./controllers/user_controller");
 const productsController = require("./controllers/products_controller");
-
+require("./models");
 const app = express();
 mongoose.Promise = global.Promise;
 mongoose
@@ -27,7 +27,7 @@ app.use(
   session({
     secret: "secret",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 14
     }
@@ -49,15 +49,15 @@ setTimeout(() => {
   app.delete("/api/products/:id", adminController.deleteProduct);
 
   //user
-  app.post("/api/login", userController.login);
+  // app.post("/api/login", userController.login);
 
-  app.post("/api/logout", userController.logout);
+  // app.post("/api/logout", userController.logout);
 
-  app.get("/api/user-data/cart", userController.readUserData);
+  // app.get("/api/user-data/cart", userController.readUserData);
 
-  app.post("/api/user-data/cart", userController.addToCart);
+  // app.post("/api/user-data/cart", userController.addToCart);
 
-  app.delete("/api/user-data/cart/:id", userController.removeFromCart);
+  // app.delete("/api/user-data/cart/:id", userController.removeFromCart);
 
   //products
   app.get("/api/products", productsController.readAllProducts);

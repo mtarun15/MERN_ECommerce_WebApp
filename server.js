@@ -1,15 +1,10 @@
-//require.apply("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cors = require("cors");
-const {
-  mongoURI,
-  REACT_APP_AUTH0_DOMAIN,
-  REACT_APP_AUTH0_CLIENT_SECRET,
-  REACT_APP_AUTH0_CLIENT_ID
-} = require("./config/keys");
+
 const adminController = require("./controllers/admin_controller");
 const cloudinaryController = require("./controllers/cloudinary_controller");
 const userController = require("./controllers/user_controller");
@@ -18,7 +13,7 @@ require("./models");
 const app = express();
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(mongoURI, {
+  .connect(process.env.MONGOURI, {
     useNewUrlParser: true
   })
   .then(() => {

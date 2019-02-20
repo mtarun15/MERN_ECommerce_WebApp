@@ -14,11 +14,12 @@ module.exports = {
   },
 
   createProduct(req, res) {
-    const { name, description, price } = req.body;
+    const { name, description, price, picture } = req.body;
     let newProduct = new Product({
       name,
       description,
-      price
+      price,
+      picture
     });
     newProduct.save().then(product => {
       res.status(200).json(product);
@@ -27,11 +28,13 @@ module.exports = {
 
   updateProduct(req, res) {
     const { id } = req.params;
+    const { name, description, price, picture } = req.body;
     Product.findById(id)
       .then(product => {
         (product.name = name),
           (product.description = description),
-          (product.price = price);
+          (product.price = price),
+          (product.picture = picture);
       })
       .save()
       .then(product => {

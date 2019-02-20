@@ -15,7 +15,7 @@ export default class Cart extends Component {
           <h2>Your Cart!</h2>
           <div>
             {sampleCartData.map(product => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>

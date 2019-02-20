@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import Navbar from "./components/container/navbar/Navbar";
 import "./App.css";
-
+import Home from "./components/container/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
+        <Navbar />
+        <Home />
       </div>
     );
   }

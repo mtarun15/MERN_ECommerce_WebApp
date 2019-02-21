@@ -40,7 +40,6 @@ app.use(bodyParser.json());
 
 //set timeout so that our database connects before accessing data
 
-// setTimeout(() => {
 //admin
 app.get("/api/users", adminController.getAdminUsers);
 
@@ -67,7 +66,7 @@ app.get("/api/products", productsController.readAllProducts);
 app.get("/api/products/:id", productsController.readProduct);
 
 app.get("/api/upload", cloudinaryController.upload);
-// }, 200);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

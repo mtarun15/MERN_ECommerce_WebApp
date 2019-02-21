@@ -40,5 +40,4 @@ class App extends Component {
     );
   }
 }
-
 export default withRouter(connect()(App));

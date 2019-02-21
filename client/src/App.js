@@ -8,6 +8,7 @@ import Cart from "./components/presentational/Cart";
 import Home from "./components/container/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./components/container/About";
+import Admin from "./components/container/Admin/Admin";
 import axios from "axios";
 class App extends Component {
   componentDidMount() {
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/admin" component={Admin} />
           </Switch>
         </div>
       </div>

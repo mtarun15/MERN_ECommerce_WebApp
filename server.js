@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -17,10 +18,11 @@ mongoose
     useNewUrlParser: true
   })
   .then(() => {
+    console.log(process.env);
     console.log("Connected to Mlab..");
   })
   .catch(err => {
-    console.log(err);
+    console.log("Mlab connection error -- ", err);
   });
 app.use(cors());
 app.use(
@@ -51,18 +53,20 @@ app.delete("/api/products/:id", adminController.deleteProduct);
 //user
 app.get("/auth/callback", userController.login);
 
-// app.post("/api/logout", userController.logout);
+app.post("/api/logout", userController.logout);
 
-// app.get("/api/user-data/cart", userController.readUserData);
+app.get("/api/user-data", userController.readUserData);
 
-// app.post("/api/user-data/cart", userController.addToCart);
+app.post("/api/user-data/cart", userController.addToCart);
 
-// app.delete("/api/user-data/cart/:id", userController.removeFromCart);
+app.delete("/api/user-data/cart/:id", userController.removeFromCart);
 
 //products
 app.get("/api/products", productsController.readAllProducts);
 
 app.get("/api/products/:id", productsController.readProduct);
+
+app.get("/api/upload", cloudinaryController.upload);
 // }, 200);
 const port = process.env.PORT || 5000;
 

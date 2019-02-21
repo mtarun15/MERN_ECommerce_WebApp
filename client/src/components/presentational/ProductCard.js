@@ -3,7 +3,7 @@ import "./ProductCards.css";
 import PropTypes from "prop-types";
 const ProductCard = props => {
   const { name, price } = props.product;
-  console.log(name);
+
   return (
     <div>
       <div className="product-card container">
@@ -18,4 +18,5 @@ const ProductCard = props => {
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired
 };
+
 export default ProductCard;

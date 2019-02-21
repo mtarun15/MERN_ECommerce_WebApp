@@ -35,7 +35,7 @@ export class Navbar extends React.Component {
     }&scope=openid%20profile%20email&redirect_uri=${redirectURI}`;
   };
   render() {
-    console.log(process.env);
+    console.log("#", process.env);
     console.log(this.props.user);
     return (
       <nav
@@ -78,7 +78,7 @@ export class Navbar extends React.Component {
             </li>
           ) : (
             <li className="nav-item mx-3 nav-link" onClick={() => this.login()}>
-              <i className="fas fa-sign-in-alt" /> Login
+              <i className="fas fa-sign-in-alt" /> LogIn
             </li>
           )}
         </ul>
